@@ -61,8 +61,8 @@ private slots:
 
 private:
     bool eventFilter(QObject *obj, QEvent *evt);
-    void updateMenu();
-    int m_maxCount;
+
+	int m_maxCount;
     int m_maxPathLength;
     QStringList m_fileList;
     bool m_dirty;

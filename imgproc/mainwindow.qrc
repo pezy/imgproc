@@ -1,8 +1,22 @@
 <RCC>
-  <qresource prefix="MainWindow">
-    <file>Resources/open.png</file>
-    <file>Resources/save.png</file>
-    <file>Resources/saveas.png</file>
-    <file>Resources/imgproc.png</file>
-  </qresource>
+    <qresource prefix="/MainWindow">
+        <file>Resources/open.png</file>
+        <file>Resources/save.png</file>
+        <file>Resources/saveas.png</file>
+        <file>Resources/imgproc.png</file>
+    </qresource>
+    <qresource prefix="/Algo">
+        <file>Resources/bilateralFilter.png</file>
+        <file>Resources/blur.png</file>
+        <file>Resources/box.png</file>
+        <file>Resources/canny.png</file>
+        <file>Resources/dilate.png</file>
+        <file>Resources/erode.png</file>
+        <file>Resources/fitEllipse.png</file>
+        <file>Resources/gaussianBlur.png</file>
+        <file>Resources/gray.png</file>
+        <file>Resources/hough.png</file>
+        <file>Resources/medianBlur.png</file>
+        <file>Resources/threshold.png</file>
+    </qresource>
 </RCC>

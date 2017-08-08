@@ -19,27 +19,18 @@ public:
 	explicit MainWindow(QWidget *parent = 0);
 	~MainWindow();
 
-	private slots:
-	void onFileOpenActionTriggered();
-	void onRecentFilesTriggered(const QString &filePath);
-	void onFileSaveActionTriggered();
-	void onFileSaveAsActionTriggered();
-	void onImageActionTriggered();
-	void onFilterPreviewButtonClicked();
-	void onFilterApplyButtonClicked();
-	void onColorUnderMouseChanged(const QColor &c);
-
 private:
-	void closeEvent(QCloseEvent *evt);
-	void loadSettings();
-	void saveSettings();
-	void createImageAction(int id, const QString &text);
-	void createImageActions();
-	void doOpen(const QString &filePath);
+	void closeEvent(QCloseEvent *evt) override;
+	
+	void _LoadSettings();
+	void _SaveSettings();
+	void _OnApply();
+	void _CreateProcessAction(const QString& iconName, const QString& title, std::function<AbstractConvert*()> functor);
+	void _CreateProcessActions();
+	void _Open(const QString &filePath);
 
 	Ui::MainWindow *ui;
 	RecentFiles *m_recentFiles;
-	QMap<int, QAction*> m_processActions;
 	cv::Mat m_originalMat;
 	cv::Mat m_processMat;
 	QSharedPointer<AbstractConvert> m_convert;

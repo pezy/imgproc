@@ -52,7 +52,8 @@ public:
     QVBoxLayout *verticalLayout;
     QWidget *paramsWidget;
     QVBoxLayout *verticalLayout_2;
-    QPushButton *setBaseBtn;
+    QPushButton *btnApply;
+    QPushButton *btnSetBase;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -133,10 +134,15 @@ public:
 
         verticalLayout->addWidget(paramsWidget);
 
-        setBaseBtn = new QPushButton(dockWidgetContents_3);
-        setBaseBtn->setObjectName(QStringLiteral("setBaseBtn"));
+        btnApply = new QPushButton(dockWidgetContents_3);
+        btnApply->setObjectName(QStringLiteral("btnApply"));
 
-        verticalLayout->addWidget(setBaseBtn);
+        verticalLayout->addWidget(btnApply);
+
+        btnSetBase = new QPushButton(dockWidgetContents_3);
+        btnSetBase->setObjectName(QStringLiteral("btnSetBase"));
+
+        verticalLayout->addWidget(btnSetBase);
 
         filterDockWidget->setWidget(dockWidgetContents_3);
         MainWindow->addDockWidget(static_cast<Qt::DockWidgetArea>(1), filterDockWidget);
@@ -170,7 +176,8 @@ public:
         menuProcess->setTitle(QApplication::translate("MainWindow", "&Process", Q_NULLPTR));
         menu_Help->setTitle(QApplication::translate("MainWindow", "&Help", Q_NULLPTR));
         filterDockWidget->setWindowTitle(QApplication::translate("MainWindow", "Image Filter", Q_NULLPTR));
-        setBaseBtn->setText(QApplication::translate("MainWindow", "SetBase", Q_NULLPTR));
+        btnApply->setText(QApplication::translate("MainWindow", "Apply", Q_NULLPTR));
+        btnSetBase->setText(QApplication::translate("MainWindow", "SetBase", Q_NULLPTR));
     } // retranslateUi
 
 };

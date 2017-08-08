@@ -148,6 +148,11 @@ QColor ImageWidget::colorUnderMouse() const
     return d->m_lastColor;
 }
 
+void ImageWidget::clear()
+{
+	d->m_pixmapItem->setPixmap(QPixmap());
+}
+
 void ImageWidget::setPixmap(const QPixmap &pixmap)
 {
     d->m_pixmapItem->setPixmap(pixmap);

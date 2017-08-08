@@ -100,7 +100,14 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="setBaseBtn">
+      <widget class="QPushButton" name="btnApply">
+       <property name="text">
+        <string>Apply</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnSetBase">
        <property name="text">
         <string>SetBase</string>
        </property>

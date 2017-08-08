@@ -33,9 +33,6 @@ protected:
 class Gray : public AbstractConvert
 {
 public:
-    Gray(){}
-    ~Gray(){}
-
     bool applyTo(const cv::Mat &input, cv::Mat &output);
 
 private:
@@ -45,10 +42,7 @@ private:
 class Blur : public AbstractConvert
 {
 public:
-    Blur();
-    ~Blur();
-
-    bool applyTo(const cv::Mat &input, cv::Mat &output);
+	bool applyTo(const cv::Mat &input, cv::Mat &output);
 
 protected:
     void initParamsWidget();
@@ -63,9 +57,6 @@ protected:
 class BilateralFilter : public AbstractConvert
 {
 public:
-    BilateralFilter();
-    ~BilateralFilter();
-
     bool applyTo(const cv::Mat &input, cv::Mat &output);
 
 private:
@@ -80,9 +71,6 @@ private:
 class BoxFilter : public Blur
 {
 public:
-    BoxFilter();
-    ~BoxFilter();
-
     bool applyTo(const cv::Mat &input, cv::Mat &output);
 
 private:
@@ -94,9 +82,6 @@ private:
 class MedianBlur : public AbstractConvert
 {
 public:
-    MedianBlur();
-    ~MedianBlur();
-
     bool applyTo(const cv::Mat &input, cv::Mat &output);
 
 private:
@@ -108,9 +93,6 @@ private:
 class GaussianBlur : public AbstractConvert
 {
 public:
-    GaussianBlur() {}
-    ~GaussianBlur() {}
-
     bool applyTo(const cv::Mat &input, cv::Mat &output);
 
 protected:
@@ -126,9 +108,6 @@ protected:
 class Threshold : public AbstractConvert
 {
 public:
-    Threshold() {}
-    ~Threshold() {}
-
     bool applyTo(const cv::Mat &input, cv::Mat &output);
 
 protected:
@@ -143,9 +122,6 @@ protected:
 class Canny : public AbstractConvert
 {
 public:
-    Canny() {}
-    ~Canny() {}
-
     bool applyTo(const cv::Mat &input, cv::Mat &output);
 
 protected:
@@ -160,9 +136,6 @@ protected:
 class Dilate : public AbstractConvert
 {
 public:
-    Dilate() {}
-    ~Dilate() {}
-
     bool applyTo(const cv::Mat &input, cv::Mat &output);
 
 protected:
@@ -181,18 +154,12 @@ protected:
 class Erode : public Dilate
 {
 public:
-    Erode() {}
-    ~Erode() {}
-
     bool applyTo(const cv::Mat &input, cv::Mat &output);
 };
 
 class HoughCircles : public AbstractConvert
 {
 public:
-    HoughCircles() {}
-    ~HoughCircles() {}
-
     bool applyTo(const cv::Mat &input, cv::Mat &output);
 
 protected:
@@ -212,9 +179,6 @@ protected:
 class FitEllipse : public AbstractConvert
 {
 public:
-    FitEllipse() {}
-    ~FitEllipse() {}
-
     bool applyTo(const cv::Mat &input, cv::Mat &output);
 
 protected:

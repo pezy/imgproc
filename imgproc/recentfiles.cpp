@@ -112,7 +112,7 @@ bool RecentFiles::eventFilter(QObject *obj, QEvent *evt)
 {
     if (obj == m_menu && evt->type() == QEvent::Show && m_dirty) {
         m_menu->clear();
-        foreach (QString filePath, m_fileList) {
+        for (QString filePath : m_fileList) {
             QString title = QFontMetrics(m_menu->font()).elidedText(filePath, Qt::ElideMiddle, m_maxPathLength);
             QAction *act = new QAction(title, m_menu.data());
             act->setData(filePath);

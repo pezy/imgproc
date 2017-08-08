@@ -51,16 +51,6 @@ bool Gray::applyTo(const cv::Mat &input, cv::Mat &output)
     return true;
 }
 
-Blur::Blur()
-{
-
-}
-
-Blur::~Blur()
-{
-
-}
-
 bool Blur::applyTo(const cv::Mat &input, cv::Mat &output)
 {
     cv::blur(input, output, cv::Size(kSizeXEdit->value(), kSizeYEdit->value()),
@@ -92,17 +82,6 @@ void Blur::initParamsWidget()
     layout->addRow("border", borderTypeEdit);
 }
 
-
-BilateralFilter::BilateralFilter()
-{
-
-}
-
-BilateralFilter::~BilateralFilter()
-{
-
-}
-
 bool BilateralFilter::applyTo(const cv::Mat &input, cv::Mat &output)
 {
     cv::bilateralFilter(input, output, dEdit->value(), sigmaColorEdit->value(),
@@ -131,16 +110,6 @@ void BilateralFilter::initParamsWidget()
     layout->addRow("border", borderTypeEdit);
 }
 
-BoxFilter::BoxFilter()
-{
-
-}
-
-BoxFilter::~BoxFilter()
-{
-
-}
-
 bool BoxFilter::applyTo(const cv::Mat &input, cv::Mat &output)
 {
     cv::boxFilter(input, output, -1, cv::Size(kSizeXEdit->value(), kSizeYEdit->value()),
@@ -160,18 +129,6 @@ void BoxFilter::initParamsWidget()
     static_cast<QFormLayout *>(m_widget->layout())->addRow("normalized", normalizeEdit);
 }
 
-
-
-MedianBlur::MedianBlur()
-{
-
-}
-
-MedianBlur::~MedianBlur()
-{
-
-}
-
 bool MedianBlur::applyTo(const cv::Mat &input, cv::Mat &output)
 {
     cv::medianBlur(input, output, kSizeEdit->value());
@@ -185,7 +142,6 @@ void MedianBlur::initParamsWidget()
     QFormLayout *layout = new QFormLayout(m_widget.data());
     layout->addRow("kSize", kSizeEdit);
 }
-
 
 bool GaussianBlur::applyTo(const cv::Mat &input, cv::Mat &output)
 {
@@ -217,7 +173,6 @@ void GaussianBlur::initParamsWidget()
     layout->addRow("anchor Y", sigmaYEdit);
     layout->addRow("border", borderTypeEdit);
 }
-
 
 bool Threshold::applyTo(const cv::Mat &input, cv::Mat &output)
 {

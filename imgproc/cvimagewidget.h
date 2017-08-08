@@ -43,6 +43,8 @@ public:
     QPixmap pixmap() const;
     QColor colorUnderMouse() const;
 
+	void clear();
+
 public slots:
     void setCurrentScale(double currentScale);
     void setScaleRange(double min, double max);
