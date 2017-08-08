@@ -145,6 +145,7 @@ void MainWindow::_CreateProcessActions()
 	ui->mainToolBar->addSeparator();
 
 	_CreateProcessAction("threshold", "Threshold", []() { return new Threshold(); });
+	_CreateProcessAction("adaptiveThreshold", "Adaptive Threshold", []() { return new AdaptiveThreshold(); });
 	_CreateProcessAction("bilateralFilter", "Bilateral Filter", []() { return new BilateralFilter(); });
 	_CreateProcessAction("blur", "Blur", []() { return new Blur(); });
 	_CreateProcessAction("box", "Box Filter", []() { return new BoxFilter(); });

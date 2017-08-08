@@ -392,3 +392,46 @@ void FitEllipse::initParamsWidget()
     layout->addRow(infoEdit);
 }
 
+bool AdaptiveThreshold::applyTo(const cv::Mat &input, cv::Mat &output)
+{
+	if (input.channels() != 1) {
+		m_errorString = "This function only works with gray image.";
+		return false;
+	}
+
+	if (blockSize->value() % 2 != 1) {
+		m_errorString = "The blockSize should an odd integer.";
+		return false;
+	}
+
+	cv::adaptiveThreshold(input, output, 
+		maxValue->value(), 
+		method->itemData(method->currentIndex()).toInt(), 
+		type->itemData(type->currentIndex()).toInt(), 
+		blockSize->value(),
+		delta->value());
+
+	return true;
+}
+
+void AdaptiveThreshold::initParamsWidget()
+{
+	maxValue = createSpinBox(255, 0, 255);
+	method = new QComboBox;
+	method->addItem("ADAPTIVE_THRESH_MEAN_C", cv::ADAPTIVE_THRESH_MEAN_C);
+	method->addItem("ADAPTIVE_THRESH_GAUSSIAN_C", cv::ADAPTIVE_THRESH_GAUSSIAN_C);
+	type = new QComboBox;
+	type->addItem("THRESH_BINARY", cv::THRESH_BINARY);
+	type->addItem("THRESH_BINARY_INV", cv::THRESH_BINARY_INV);
+	blockSize = createSpinBox(3);
+	blockSize->setSingleStep(2);
+	blockSize->setMinimum(3);
+	delta = createSpinBox(5);
+
+	QFormLayout *layout = new QFormLayout(m_widget.data());
+	layout->addRow("maxValue", maxValue);
+	layout->addRow("adaptiveMethod", method);
+	layout->addRow("thresholdType", type);
+	layout->addRow("blockSize", blockSize);
+	layout->addRow("C", delta);
+}

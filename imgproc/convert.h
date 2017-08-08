@@ -187,4 +187,19 @@ protected:
     QPlainTextEdit *infoEdit;
 };
 
+class AdaptiveThreshold : public AbstractConvert
+{
+public:
+	bool applyTo(const cv::Mat &input, cv::Mat &output) override;
+
+protected:
+	void initParamsWidget() override;
+
+	QSpinBox* maxValue;
+	QComboBox* method;
+	QComboBox* type;
+	QSpinBox* blockSize;
+	QSpinBox* delta;
+};
+
 #endif // ABSTRACTCONVERT_H
