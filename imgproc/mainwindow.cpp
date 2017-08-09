@@ -56,10 +56,9 @@ MainWindow::MainWindow(QWidget *parent) :
 		connect(ui->processView, &ImageWidget::colorUnderMouseChanged, colorUpdateOnMouseMoved);
 		connect(ui->originalView, &ImageWidget::realScaleChanged, ui->processView, &ImageWidget::setCurrentScale);
 		connect(ui->processView, &ImageWidget::realScaleChanged, ui->originalView, &ImageWidget::setCurrentScale);
+		connect(ui->originalView->horizontalScrollBar(), &QScrollBar::valueChanged, ui->processView, &ImageWidget::setHorizontalScrollbarValue);
+		connect(ui->originalView->verticalScrollBar(), &QScrollBar::valueChanged, ui->processView, &ImageWidget::setVerticalScrollbarValue);
 	}
-	//Todo
-	connect(ui->originalView->horizontalScrollBar(), &QScrollBar::valueChanged, ui->processView->horizontalScrollBar(), &QScrollBar::setValue);
-	connect(ui->originalView->verticalScrollBar(), &QScrollBar::valueChanged, ui->processView->verticalScrollBar(), &QScrollBar::setValue);
 
 	connect(ui->btnApply, &QPushButton::pressed, this, &MainWindow::_OnApply);
 	connect(ui->btnSetBase, &QPushButton::pressed, [this]() {

@@ -52,9 +52,10 @@ public slots:
 
     void setImage(const QImage &image);
     void setPixmap(const QPixmap &pixmap);
+	void setHorizontalScrollbarValue(int i);
+	void setVerticalScrollbarValue(int i);
 
 signals:
-    void scaleChanged(double scale);
     void realScaleChanged(double scale);
     void colorUnderMouseChanged(const QColor &color);
 

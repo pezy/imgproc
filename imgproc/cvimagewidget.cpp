@@ -30,6 +30,7 @@
 #include <QGraphicsPixmapItem>
 #include <QPointF>
 #include <QDebug>
+#include <QScrollBar>
 
 #include <math.h>
 
@@ -85,8 +86,9 @@ void ImageWidgetPrivate::dealWithScaleChanged(double rScale, bool causedByWheel)
 
     q->scale(rScale, rScale);
     m_scale = qMax(fabs(q->transform().m11()),fabs(q->transform().m12()));
-    emit q->scaleChanged(m_scale);
     emit q->realScaleChanged(m_scale);
+	emit q->horizontalScrollBar()->valueChanged(q->horizontalScrollBar()->value());
+	emit q->verticalScrollBar()->valueChanged(q->verticalScrollBar()->value());
 }
 
 void ImageWidgetPrivate::doAutoFit()
@@ -174,6 +176,18 @@ void ImageWidget::setPixmap(const QPixmap &pixmap)
     }
 }
 
+void ImageWidget::setHorizontalScrollbarValue(int i)
+{
+	this->horizontalScrollBar()->setValue(i);
+	update();
+}
+
+void ImageWidget::setVerticalScrollbarValue(int i)
+{
+	this->verticalScrollBar()->setValue(i);
+	update();
+}
+
 void ImageWidget::setImage(const QImage &image)
 {
     setPixmap(QPixmap::fromImage(image));
@@ -214,7 +228,6 @@ void ImageWidget::setCurrentScale(double factor)
         if (!d->m_autoAdjustEnabled) {
             d->m_autoAdjustEnabled = true;
             d->doAutoFit();
-            emit scaleChanged(0);
         }
         return;
     }
